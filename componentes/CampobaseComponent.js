@@ -5,8 +5,46 @@ import DetalleExcursion from './DetalleExcursionComponent';
 import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import Home from './HomeComponent';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
+
+function HomeNavegador() {
+    return (
+        <Stack.Navigator
+                initialRouteName="Home"
+                headerMode="screen"
+                screenOptions={{
+                    headerTintColor: '#fff',
+                    headerStyle: { backgroundColor: '#015afc' },
+                    headerTitleStyle: { color: '#fff' },
+                }}
+            >
+            <Stack.Screen
+                name="Home"
+                component={Home}
+                options={{
+                    title: 'Campo Base',
+                }}
+            />
+        </Stack.Navigator>
+    );
+}
+function DrawerNavegador() {
+    return (
+        <Drawer.Navigator
+                drawerStyle={{
+                backgroundColor: '#c2d3da',
+                }}
+                initialRouteName="Home"
+            >
+            <Drawer.Screen name="Home" component={HomeNavegador} />
+            <Drawer.Screen name="Calendario" component={CalendarioNavegador} />
+        </Drawer.Navigator>
+    );
+}
 
 function CalendarioNavegador() {
   return (
@@ -43,10 +81,11 @@ class Campobase extends Component {
 
     return (
       <NavigationContainer>
-        <View style={{flex:1, paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight }}>
-          <CalendarioNavegador />
-        </View>
-      </NavigationContainer>   
+          <View style={{flex:1, paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight }}>
+              <DrawerNavegador />
+          </View>
+      </NavigationContainer>
+
     );
 }
 }
