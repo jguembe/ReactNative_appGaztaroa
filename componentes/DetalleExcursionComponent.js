@@ -3,6 +3,7 @@ import { Text, View, ScrollView, FlatList} from 'react-native';
 import { Card, Icon } from 'react-native-elements';
 import { EXCURSIONES } from '../comun/excursiones';
 import { COMENTARIOS } from '../comun/comentarios';
+import { baseUrl } from '../comun/comun';
 
 function RenderExcursion(props) {
 
@@ -13,7 +14,7 @@ function RenderExcursion(props) {
             <Card>
                 <Card.Title>{excursion.nombre}</Card.Title>
                 <Card.Divider/>
-                <Card.Image source={require('./imagenes/40Años.png')}></Card.Image>
+                <Card.Image source={{uri: baseUrl + excursion.imagen}}></Card.Image>
                 <Text style={{margin: 20}}>
                   {excursion.descripcion}
                 </Text>

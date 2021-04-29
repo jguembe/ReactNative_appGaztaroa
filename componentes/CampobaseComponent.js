@@ -12,6 +12,8 @@ import DetalleExcursion from './DetalleExcursionComponent';
 import Home from './HomeComponent';
 import Contacto from './ContactoComponent';
 import QuienesSomos from './QuienesSomosComponent';
+import { colorGaztaroaClaro } from '../comun/comun';
+import { colorGaztaroaOscuro } from '../comun/comun';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -38,7 +40,7 @@ function DrawerNavegador() {
     return (
         <Drawer.Navigator
                 drawerStyle={{
-                backgroundColor: '#c2d3da',
+                backgroundColor: colorGaztaroaClaro,
                 }}
                 initialRouteName="Home"
                 drawerContent={props => <CustomDrawerContent {...props}/>}
@@ -102,7 +104,7 @@ function HomeNavegador({ navigation }) {
                 headerMode="screen"
                 screenOptions={{
                     headerTintColor: '#fff',
-                    headerStyle: { backgroundColor: '#015afc' },
+                    headerStyle: { backgroundColor: colorGaztaroaOscuro },
                     headerTitleStyle: { color: '#fff',alignSelf: 'center'},
                     headerLeft: () => (
                         <Icon name="menu" size={28}
@@ -131,7 +133,7 @@ function QuienesSomosNavegador({ navigation }) {
                 headerMode="screen"
                 screenOptions={{
                     headerTintColor: '#fff',
-                    headerStyle: { backgroundColor: '#015afc' },
+                    headerStyle: { backgroundColor: colorGaztaroaOscuro },
                     headerTitleStyle: { color: '#fff',alignSelf: 'center'},
                     headerLeft: () => (
                         <Icon name="menu" size={28}
@@ -161,7 +163,7 @@ function ContactoNavegador({ navigation }) {
                 headerMode="screen"
                 screenOptions={{
                     headerTintColor: '#fff',
-                    headerStyle: { backgroundColor: '#015afc' },
+                    headerStyle: { backgroundColor: colorGaztaroaOscuro },
                     headerTitleStyle: { color: '#fff',alignSelf: 'center'},
                     headerLeft: () => (
                         <Icon name="menu" size={28}
@@ -189,7 +191,7 @@ function CalendarioNavegador({ navigation }) {
           headerMode="screen"
           screenOptions={{
             headerTintColor: '#fff',
-            headerStyle: { backgroundColor: '#015afc' },
+            headerStyle: { backgroundColor: colorGaztaroaOscuro },
             headerTitleStyle: { color: '#fff',alignSelf: 'center'},
 
           }}
@@ -239,7 +241,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     drawerHeader: {
-        backgroundColor: '#015afc',
+        backgroundColor: colorGaztaroaOscuro,
         height: 100,
         alignItems: 'center',
         justifyContent: 'center',
