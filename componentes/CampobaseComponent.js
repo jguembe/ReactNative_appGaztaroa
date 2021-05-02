@@ -6,6 +6,8 @@ import { NavigationContainer, DrawerActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import {SafeAreaView } from 'react-native-safe-area-context';
+import { connect } from 'react-redux';
+import { fetchExcursiones, fetchComentarios, fetchCabeceras, fetchActividades } from '../redux/ActionCreators';
 
 import Calendario from './CalendarioComponent';
 import DetalleExcursion from './DetalleExcursionComponent';
@@ -17,6 +19,24 @@ import { colorGaztaroaOscuro } from '../comun/comun';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
+
+const mapStateToProps = state => {
+    return {
+        excursiones: state.excursiones,
+        comentarios: state.comentarios,
+        cabeceras: state.cabeceras,
+        actividades: state.actividades
+    }
+}
+
+const mapDispatchToProps = dispatch => ({
+    fetchExcursiones: () => dispatch(fetchExcursiones()),
+    fetchComentarios: () => dispatch(fetchComentarios()),
+    fetchCabeceras: () => dispatch(fetchCabeceras()),
+    fetchActividades: () => dispatch(fetchActividades()),
+})
+
+
 
 function CustomDrawerContent(props) {
     return (
@@ -222,6 +242,13 @@ function CalendarioNavegador({ navigation }) {
 
 class Campobase extends Component {
 
+  componentDidMount() {
+      this.props.fetchExcursiones();
+      this.props.fetchComentarios();
+      this.props.fetchCabeceras();
+      this.props.fetchActividades();
+  }
+
   render() {
 
     return (
@@ -260,4 +287,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Campobase;
+export default connect(mapStateToProps, mapDispatchToProps)(Campobase);
