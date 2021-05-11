@@ -3,18 +3,25 @@ import { Text, View, ScrollView, FlatList, StyleSheet} from 'react-native';
 import { Card, Icon } from 'react-native-elements';
 import { baseUrl } from '../comun/comun';
 import { connect } from 'react-redux';
+import { postFavorito } from '../redux/ActionCreators';
+
 
 const mapStateToProps = state => {
     return {
       excursiones: state.excursiones,
-      comentarios: state.comentarios
+      comentarios: state.comentarios,
+      favoritos: state.favoritos
     }
-  }
+}
+
+const mapDispatchToProps = dispatch => ({
+    postFavorito: (excursionId) => dispatch(postFavorito(excursionId))
+})
 
 function RenderExcursion(props) {
 
     const excursion = props.excursion;
-    
+
         if (excursion != null) {
             return(
             <Card>
@@ -43,9 +50,9 @@ function RenderExcursion(props) {
 function RenderComentario(props) {
 
   const comentarios = props.comentarios;
-          
+
   const renderCommentarioItem = ({item, index}) => {
-      
+
       return (
           <View key={index} style={{margin: 10}}>
               <Text style={{fontSize: 14}}>{item.comentario}</Text>
@@ -54,12 +61,12 @@ function RenderComentario(props) {
           </View>
       );
   };
-  
+
   return (
       <Card>
         <Card.Title>Comentarios</Card.Title>
         <Card.Divider/>
-        <FlatList 
+        <FlatList
             data={comentarios}
             renderItem={renderCommentarioItem}
             keyExtractor={item => item.id.toString()}
@@ -70,16 +77,14 @@ function RenderComentario(props) {
 
 
 class DetalleExcursion extends Component {
-  constructor(props) {
-      super(props);
-      this.state = {
-          favoritos: []
-      };
+
+  componentDidMount() {
+    this.props.postFavorito();
   }
 
   marcarFavorito(excursionId) {
-    this.setState({favoritos: this.state.favoritos.concat(excursionId)});
-    }
+    this.props.postFavorito(excursionId);
+  }
 
   render(){
     const {excursionId} = this.props.route.params;
@@ -87,7 +92,7 @@ class DetalleExcursion extends Component {
         <ScrollView>
             <RenderExcursion
                 excursion={this.props.excursiones.excursiones[+excursionId]}
-                favorita={this.state.favoritos.some(el => el === excursionId)}
+                favorita={this.props.favoritos.some(el => el === excursionId)}
                 onPress={() => this.marcarFavorito(excursionId)}
             />
             <RenderComentario
@@ -95,7 +100,7 @@ class DetalleExcursion extends Component {
             />
         </ScrollView>
     );
-  } 
+  }
 }
 
 const styles = StyleSheet.create({
@@ -109,4 +114,4 @@ const styles = StyleSheet.create({
     },
   });
 
-export default connect(mapStateToProps)(DetalleExcursion);
+export default connect(mapStateToProps, mapDispatchToProps)(DetalleExcursion);

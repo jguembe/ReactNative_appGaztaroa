@@ -69,7 +69,7 @@ export const addExcursiones = (excursiones) => ({
 });
 
 export const fetchCabeceras = () => (dispatch) => {
-    
+
     dispatch(cabecerasLoading());
 
     return fetch(baseUrl + 'cabeceras')
@@ -106,7 +106,7 @@ export const addCabeceras = (cabeceras) => ({
 });
 
 export const fetchActividades = () => (dispatch) => {
-    
+
     dispatch(actividadesLoading());
 
     return fetch(baseUrl + 'actividades')
@@ -140,4 +140,13 @@ export const actividadesFailed = (errmess) => ({
 export const addActividades = (actividades) => ({
     type: ActionTypes.ADD_ACTIVIDADES,
     payload: actividades
+});
+export const postFavorito = (excursionId) => (dispatch) => {
+    setTimeout(() => {
+        dispatch(addFavorito(excursionId));
+    }, 2000);
+};
+export const addFavorito = (excursionId) => ({
+    type: ActionTypes.ADD_FAVORITO,
+    payload: excursionId
 });

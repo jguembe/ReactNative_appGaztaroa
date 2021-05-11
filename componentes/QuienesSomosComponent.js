@@ -5,6 +5,7 @@ import { FlatList } from 'react-native';
 import { ListItem, Avatar } from 'react-native-elements';
 import { baseUrl } from '../comun/comun';
 import { connect } from 'react-redux';
+import {IndicadorActividad} from './IndicadorActividadComponent';
 
 const mapStateToProps = state => {
     return {
@@ -31,7 +32,7 @@ function Historia() {
 class QuienesSomos extends Component {
 
     render() {
-        
+
         const renderActividadItem = ({item, index}) => {
             return (
                 <ListItem
@@ -42,17 +43,29 @@ class QuienesSomos extends Component {
                     <ListItem.Title>{item.nombre}</ListItem.Title>
                     <ListItem.Subtitle>{item.descripcion}</ListItem.Subtitle>
                 </ListItem.Content>
-            </ListItem> 
+            </ListItem>
             );
         };
 
+        if (this.props.actividades.isLoading) {
+        return(
+            <ScrollView>
+              <Historia />
+              <Card>
+                <Card.Title>"Actividades y recursos"</Card.Title>
+                <Card.Divider/>
+                <IndicadorActividad />
+              </Card>
+            </ScrollView>
+        );
+      }else{
         return(
             <ScrollView>
                 <Historia />
                 <Card>
                     <Card.Title>"Actividades y recursos"</Card.Title>
                     <Card.Divider/>
-                    <FlatList 
+                    <FlatList
                     data={this.props.actividades.actividades}
                     renderItem={renderActividadItem}
                     keyExtractor={item => item.id.toString()}
@@ -60,6 +73,8 @@ class QuienesSomos extends Component {
                 </Card>
             </ScrollView>
         );
+      }
+
     }
 }
 
