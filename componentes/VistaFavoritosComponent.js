@@ -57,7 +57,7 @@ class VistaFavoritos extends Component {
                         onPress={() => navigate('DetalleExcursion', { excursionId: item.id })}
                         onLongPress={() => showAlert(item)}
                         bottomDivider>
-                        <Avatar rounded source={{uri: baseUrl + item.imagen}} />
+                        <Avatar rounded source={{uri: item.imagen}} />
                         <ListItem.Content>
                             <ListItem.Title>{item.nombre}</ListItem.Title>
                             <ListItem.Subtitle>{item.descripcion}</ListItem.Subtitle>
