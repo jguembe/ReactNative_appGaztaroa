@@ -6,6 +6,7 @@ import Home from './HomeComponent';
 import QuienesSomos from './QuienesSomosComponent';
 import Contacto from './ContactoComponent';
 import PruebaEsfuerzo from './PruebaEsfuerzoComponent';
+import VistaFavoritos from './VistaFavoritosComponent';
 
 import { View, StyleSheet, Image, Text } from 'react-native';
 import { NavigationContainer, DrawerActions } from '@react-navigation/native';
@@ -158,6 +159,29 @@ function PruebaEsfuerzoNavegador({ navigation }) {
   );
 }
 
+function VistaFavoritosNavegador({ navigation }) {
+  return (
+    <Stack.Navigator
+      initialRouteName="VistaFavoritos"
+      headerMode="screen"
+      screenOptions={{
+        headerTintColor: '#fff',
+        headerStyle: { backgroundColor: colorGaztaroaOscuro },
+        headerTitleStyle: { color: '#fff' },
+        headerLeft: () => (<Icon name="menu" size={28} color= 'white' onPress={ () => navigation.dispatch(DrawerActions.toggleDrawer()) }/>),
+      }}
+    >
+      <Stack.Screen
+        name="VistaFavoritos"
+        component={VistaFavoritos}
+        options={{
+          title: 'Excursiones favoritas',
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
 function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props}>
@@ -226,6 +250,18 @@ function DrawerNavegador() {
             drawerIcon: ({ tintColor}) => (
               <Icon
               name='address-card'
+              type='font-awesome'
+              size={22}
+              color={tintColor}
+              />
+            )
+            }}
+        />
+        <Drawer.Screen name="VistaFavoritos" component={VistaFavoritosNavegador}
+          options={{
+            drawerIcon: ({tintColor}) => (
+              <Icon
+              name='thumbs-up'
               type='font-awesome'
               size={22}
               color={tintColor}
