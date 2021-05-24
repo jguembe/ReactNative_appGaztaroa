@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView, FlatList, StyleSheet, Modal, Button} from 'react-native';
+import { Text, View, ScrollView, FlatList, StyleSheet, Modal, Button, Linking} from 'react-native';
 import { Card, Icon, Rating, Input } from 'react-native-elements';
 import { baseUrl } from '../comun/comun';
 import { connect } from 'react-redux';
 import { postFavorito, postComentario } from '../redux/ActionCreators';
-import { colorGaztaroaOscuro } from '../comun/comun';
+import { colorGaztaroaOscuro, colorGaztaroaClaro } from '../comun/comun';
 
 
 const mapStateToProps = state => {
@@ -25,6 +25,19 @@ function RenderExcursion(props) {
     const excursion = props.excursion;
 
         if (excursion != null) {
+
+            const shareMail = async () =>{
+                await Linking.openURL('mailto:?subject=[AppGaztaroa] ' + excursion.nombre + '&body=' + excursion.descripcion);
+            };
+
+            const shareWhatsapp = async () =>{
+                await Linking.openURL("whatsapp://send?text=*[AppGaztaroa] " + excursion.nombre + '* \r\n' + excursion.descripcion );
+            };
+
+            const shareTwitter = async () =>{
+                await Linking.openURL("twitter://post?message=[AppGaztaroa] " + excursion.nombre + " " + excursion.descripcion);
+            };
+
             return(
             <Card>
               <Card.Image source = {{ uri: excursion.imagen }}>
@@ -51,6 +64,34 @@ function RenderExcursion(props) {
                       onPress={() => props.onPressComentario()}
                   />
               </View>
+              <Card.Divider/>
+              <View style={styles.formRow}>
+                  <Icon
+                      raised
+                      reverse
+                      name='envelope'
+                      type='font-awesome'
+                      color={colorGaztaroaClaro}
+                      onPress={shareMail}
+                  />
+                  <Icon
+                      raised
+                      reverse
+                      name='whatsapp'
+                      type='font-awesome'
+                      color={colorGaztaroaClaro}
+                      onPress={shareWhatsapp}
+                  />
+                  <Icon
+                      raised
+                      reverse
+                      name='twitter'
+                      type='font-awesome'
+                      color={colorGaztaroaClaro}
+                      onPress={shareTwitter}
+                  />
+              </View>
+
             </Card>
             );
         }
