@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView, FlatList, StyleSheet, Modal, Button, Linking} from 'react-native';
+import { Text, View, ScrollView, FlatList, StyleSheet, Modal, Button, Linking, Alert} from 'react-native';
 import { Card, Icon, Rating, Input } from 'react-native-elements';
 import { baseUrl } from '../comun/comun';
 import { connect } from 'react-redux';
 import { postFavorito, postComentario } from '../redux/ActionCreators';
 import { colorGaztaroaOscuro, colorGaztaroaClaro } from '../comun/comun';
-
+import * as ImagePicker from "expo-image-picker";
 
 const mapStateToProps = state => {
     return {
@@ -38,9 +38,27 @@ function RenderExcursion(props) {
                 await Linking.openURL("twitter://post?message=[AppGaztaroa] " + excursion.nombre + " " + excursion.descripcion);
             };
 
+            const showAlert = (item) =>{
+                Alert.alert(
+                  "",
+                  null,
+                  [
+                    {
+                      text: "Cámara",
+                      onPress: () => props.pickImage2()
+                    },
+                    { text: "Imágenes guardadas",
+                      onPress:() => props.pickImage1()
+                    }
+                  ],
+                  {cancelable: true}
+                )
+            };
+
+
             return(
             <Card>
-              <Card.Image source = {{ uri: excursion.imagen }}>
+              <Card.Image source = {{ uri: props.newimage ? props.newimage : excursion.imagen}}>
                 <Card.Title style={styles.cardTitleStyle}>{excursion.nombre}</Card.Title>
               </Card.Image>
               <Text style={{margin: 20}}>
@@ -62,6 +80,14 @@ function RenderExcursion(props) {
                       type='font-awesome'
                       color={colorGaztaroaOscuro}
                       onPress={() => props.onPressComentario()}
+                  />
+                  <Icon
+                      raised
+                      reverse
+                      name='camera'
+                      type='font-awesome'
+                      color={colorGaztaroaOscuro}
+                      onPress={showAlert}
                   />
               </View>
               <Card.Divider/>
@@ -137,9 +163,54 @@ class DetalleExcursion extends Component {
           autor: '',
           comentario: '',
           puntuacion: 3,
-          showModal: false
+          showModal: false,
+          image: ''
       }
   }
+
+  pickImage1 = async () => {
+      if (Platform.OS !== 'web') {
+        const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+        if (status !== 'granted') {
+          alert('Sorry, we need media permissions to make this work!');
+        }else{
+
+          let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            allowsEditing: true,
+            aspect: [4, 3],
+            quality: 0.7,
+          });
+
+          if (!result.cancelled) {
+              this.setState({
+                  image: result.uri
+              });
+          }
+        }
+      }
+  };
+
+  pickImage2 = async () => {
+      if (Platform.OS !== 'web') {
+        const { status } = await ImagePicker.requestCameraPermissionsAsync();
+        if (status !== 'granted') {
+          alert('Sorry, we need camera roll permissions to make this work!');
+        }else{
+            let result =  await ImagePicker.launchCameraAsync({
+              mediaTypes:ImagePicker.MediaTypeOptions.Images,
+              allowsEditing:true,
+              aspect:[4,3],
+              quality:0.7
+            })
+            if(!result.cancelled){
+                this.setState({
+                    image: result.uri
+                });
+            }
+        }
+      }
+  };
 
   toggleModal() {
       this.setState({showModal: !this.state.showModal});
@@ -177,6 +248,10 @@ class DetalleExcursion extends Component {
                 favorita={this.props.favoritos.some(el => el === excursionId)}
                 onPress={() => this.marcarFavorito(excursionId)}
                 onPressComentario={() => this.toggleModal()}
+                pickImage1={this.pickImage1}
+                pickImage2={this.pickImage2}
+                newimage={this.state.image}
+
             />
             <RenderComentario
                 comentarios={this.props.comentarios.comentarios.filter((comentario) => comentario.excursionId === excursionId)}
