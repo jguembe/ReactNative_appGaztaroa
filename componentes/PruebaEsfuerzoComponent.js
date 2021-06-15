@@ -5,6 +5,8 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import { colorGaztaroaOscuro } from '../comun/comun';
 import 'intl';
 import 'intl/locale-data/jsonp/es';
+import firebase from 'firebase/app';
+import auth from 'firebase/auth';
 
 class PruebaEsfuerzo extends Component {
 
@@ -16,8 +18,19 @@ class PruebaEsfuerzo extends Component {
             fecha: new Date(),
             showdate: false,
             showtime: false,
-            showModal: false
+            showModal: false,
+            logued: false,
         }
+    }
+
+    componentDidMount(){
+      firebase.auth().onAuthStateChanged(user =>{
+        if(user){
+          this.setState({ logued: true });
+        }else{
+            this.setState({ logued: false });
+        }
+      });
     }
 
     toggleModal() {
@@ -108,8 +121,12 @@ class PruebaEsfuerzo extends Component {
                     title="Reservar"
                     color={colorGaztaroaOscuro}
                     accessibilityLabel="Gestionar reserva..."
+                    disabled={!this.state.logued}
                     />
             </View>
+            {!this.state.logued &&<View style={styles.formRow}>
+                <Text>Necesitas estar logueado para coger cita.</Text>
+            </View>}
             <Modal
                 animationType = {"slide"}
                 transparent = {false}

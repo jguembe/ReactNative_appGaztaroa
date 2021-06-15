@@ -7,8 +7,9 @@ import QuienesSomos from './QuienesSomosComponent';
 import Contacto from './ContactoComponent';
 import PruebaEsfuerzo from './PruebaEsfuerzoComponent';
 import VistaFavoritos from './VistaFavoritosComponent';
+import Login from './LoginComponent';
 
-import { View, StyleSheet, Image, Text } from 'react-native';
+import { View, StyleSheet, Image, Text, Button } from 'react-native';
 import { NavigationContainer, DrawerActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList, } from '@react-navigation/drawer';
@@ -17,6 +18,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { colorGaztaroaOscuro, colorGaztaroaClaro } from '../comun/comun';
 import { connect } from 'react-redux';
 import { fetchExcursiones, fetchComentarios, fetchCabeceras, fetchActividades } from '../redux/ActionCreators';
+import firebase from 'firebase/app';
+import auth from 'firebase/auth';
+import { firebaseConfig } from '../comun/firebaseconfig';
+firebase.initializeApp(firebaseConfig);
 
 const mapStateToProps = state => {
   return {
@@ -159,6 +164,29 @@ function PruebaEsfuerzoNavegador({ navigation }) {
   );
 }
 
+function LoginNavegador({ navigation }) {
+  return (
+    <Stack.Navigator
+      initialRouteName="Usuario"
+      headerMode="screen"
+      screenOptions={{
+        headerTintColor: '#fff',
+        headerStyle: { backgroundColor: colorGaztaroaOscuro },
+        headerTitleStyle: { color: '#fff' },
+        headerLeft: () => (<Icon name="menu" size={28} color= 'white' onPress={ () => navigation.dispatch(DrawerActions.toggleDrawer()) }/>),
+      }}
+    >
+      <Stack.Screen
+        name="Usuario"
+        component={Login}
+        options={{
+          title: 'Usuario',
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
 function VistaFavoritosNavegador({ navigation }) {
   return (
     <Stack.Navigator
@@ -200,7 +228,7 @@ function CustomDrawerContent(props) {
   );
 }
 
-function DrawerNavegador() {
+function DrawerNavegador(props) {
   return (
       <Drawer.Navigator
       drawerStyle={{
@@ -281,13 +309,35 @@ function DrawerNavegador() {
             )
             }}
         />
+      <Drawer.Screen name={props.user!=null ? props.user.email+" [LogOut]" : "Iniciar sesion" } component={LoginNavegador}
+          options={{
+            drawerIcon: ({ tintColor}) => (
+              <Icon
+              name='user'
+              type='font-awesome'
+              size={22}
+              color={tintColor}
+              />
+            )
+            }}
+        />
       </Drawer.Navigator>
   );
 }
 
 class Campobase extends Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+          user: null,
+      }
+  }
 
   componentDidMount() {
+    firebase.auth().onAuthStateChanged(userAuth =>{
+        this.setState({ user: userAuth});
+        console.log(userAuth);
+    });
     this.props.fetchExcursiones();
     this.props.fetchComentarios();
     this.props.fetchCabeceras();
@@ -299,7 +349,7 @@ class Campobase extends Component {
     return (
       <NavigationContainer>
         <View style={{flex:1, paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight }}>
-          <DrawerNavegador />
+          <DrawerNavegador user={this.state.user} />
         </View>
       </NavigationContainer>
     );
