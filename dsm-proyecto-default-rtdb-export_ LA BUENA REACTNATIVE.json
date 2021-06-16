@@ -1,0 +1,200 @@
+{
+  "actividades" : [ {
+    "descripcion" : "Actualmente en Gaztaroa se imparten cursillos a los socios y socias que lo necesitan, se organizan jornadas invernales de iniciación y perfeccionamiento de alpinismo, escalada, orientación, etc. Poco a poco se ha ido creando un grupo muy majo de gente comprometida con el Gaztaroa sin importar no tanto a dónde se va, sino cómo se va. Actualmente en Gaztaroa somos 80 socios y socias con aproximadamente 150 licencias federativas.",
+    "destacado" : false,
+    "id" : 0,
+    "imagen" : "https://firebasestorage.googleapis.com/v0/b/dsm-proyecto.appspot.com/o/40A%C3%B1os.png?alt=media&token=e87dc0a7-73b2-4c43-8cb5-b77d57c0263e",
+    "nombre" : "Excursiones y actividades"
+  }, {
+    "descripcion" : "Hola Montañera! Hacerte socia del Club de Montaña Gaztaroa es muy fácil. Pásate de 20:00 a 21:00 por las oficinas del Club un jueves de las semanas que hay salida y podrás darnos la información necesaria para hacerte socio. Al hacerte socio del Club, podrás participar activamente en la planificación de cada temporada, podrás consultar nuestra biblioteca de mapas, libros y revistas y tendrás descuento en la tarifa del bus en las actividades en las que lo utilicemos. Anímate!",
+    "destacado" : false,
+    "id" : 1,
+    "imagen" : "https://firebasestorage.googleapis.com/v0/b/dsm-proyecto.appspot.com/o/bisaurin.png?alt=media&token=6ade0a48-ce29-48c0-a530-963e2d42ea00",
+    "nombre" : "Asóciate a Gaztaroa!"
+  }, {
+    "descripcion" : "La prueba de esfuerzo, también conocida como ergometría, consiste en un examen de la resistencia física a través de diversos ejercicios que sirven para valorar el pronóstico de una enfermedad cardiaca en estudio o ya diagnosticada.",
+    "destacado" : false,
+    "id" : 2,
+    "imagen" : "https://firebasestorage.googleapis.com/v0/b/dsm-proyecto.appspot.com/o/pruebaDeEsfuerzo.png?alt=media&token=1694fdba-bd82-4068-bdc4-3ff3fd1201d6",
+    "nombre" : "Prueba de esfuerzo"
+  }, {
+    "descripcion" : "Si estás interesado en realizar actividades de montaña de una forma continuada, resulta muy recomendable federarse. A través del seguro de la federación podrás ser rescatado en caso de accidente y además los gastos médicos estarán también cubiertos por el seguro (además del rescate). La Federación Navarra de Deportes de Montaña y Escalada (FNDME) renueva los seguros anualmente (de Enero a Diciembre). Así aunque la campaña de federación dura todo el año, la campaña se abre en diciembre de cada año.",
+    "destacado" : true,
+    "id" : 3,
+    "imagen" : "https://firebasestorage.googleapis.com/v0/b/dsm-proyecto.appspot.com/o/federarse.png?alt=media&token=ea190ae6-5012-437d-8f98-18af26dec2b1",
+    "nombre" : "Fedérate"
+  } ],
+  "cabeceras" : [ {
+    "descripcion" : "40 años organizando salidas para conocer y disfrutar la montaña",
+    "destacado" : true,
+    "id" : 0,
+    "imagen" : "https://firebasestorage.googleapis.com/v0/b/dsm-proyecto.appspot.com/o/mendiak.png?alt=media&token=1db33216-8482-4e68-b363-bf615032ea37",
+    "nombre" : "40 años de historia!"
+  } ],
+  "comentarios" : [ {
+    "autor" : "Dani Tiendica",
+    "comentario" : "Mile esker, Gaztaroa!",
+    "dia" : "2012-10-16T17 :57 :28.556094Z",
+    "excursionId" : 0,
+    "id" : 0,
+    "valoracion" : 5
+  }, {
+    "autor" : "Aitzi Mendi",
+    "comentario" : "Neka neka eginda, baina bueltatuko gara, dudik gabe!",
+    "dia" : "2014-09-05T17 :57 :28.556094Z",
+    "excursionId" : 0,
+    "id" : 1,
+    "valoracion" : 4
+  }, {
+    "autor" : "Marta Huarte",
+    "comentario" : "Hemos disfrutado mucho, aunque al final se hizo un poco largo. Volveremos!",
+    "dia" : "2015-02-13T17 :57 :28.556094Z",
+    "excursionId" : 0,
+    "id" : 2,
+    "valoracion" : 3
+  }, {
+    "autor" : "Ziriki",
+    "comentario" : "Muy buena gente, pero esto no es para mi; gracias por vuestro apoyo!",
+    "dia" : "2013-12-02T17 :57 :28.556094Z",
+    "excursionId" : 0,
+    "id" : 3,
+    "valoracion" : 4
+  }, {
+    "autor" : "Manu Colino",
+    "comentario" : "Estuvo genial! Alguien sabe cuándo es la próxima? Eskerrik asko!",
+    "dia" : "2011-12-02T17 :57 :28.556094Z",
+    "excursionId" : 0,
+    "id" : 4,
+    "valoracion" : 2
+  }, {
+    "autor" : "Manu Colino",
+    "comentario" : "Estuvo genial! Alguien sabe cuándo es la próxima? Eskerrik asko!",
+    "dia" : "2012-10-16T17 :57 :28.556094Z",
+    "excursionId" : 1,
+    "id" : 5,
+    "valoracion" : 2
+  }, {
+    "autor" : "Ziriki",
+    "comentario" : "Muy buena gente, pero esto no es para mi; gracias por vuestro apoyo!",
+    "dia" : "2014-09-05T17 :57 :28.556094Z",
+    "excursionId" : 1,
+    "id" : 6,
+    "valoracion" : 4
+  }, {
+    "autor" : "Marta Huarte",
+    "comentario" : "Hemos disfrutado mucho, aunque al final se hizo un poco largo. Volveremos!",
+    "dia" : "2015-02-13T17 :57 :28.556094Z",
+    "excursionId" : 1,
+    "id" : 7,
+    "valoracion" : 3
+  }, {
+    "autor" : "Aitzi Mendi",
+    "comentario" : "Neka neka eginda, baina bueltatuko gara, dudik gabe!",
+    "dia" : "2013-12-02T17 :57 :28.556094Z",
+    "excursionId" : 1,
+    "id" : 8,
+    "valoracion" : 4
+  }, {
+    "autor" : "Dani Tiendica",
+    "comentario" : "Mile esker, Gaztaroa!",
+    "dia" : "2011-12-02T17 :57 :28.556094Z",
+    "excursionId" : 1,
+    "id" : 9,
+    "valoracion" : 2
+  }, {
+    "autor" : "Aitzi Mendi",
+    "comentario" : "Neka neka eginda, baina bueltatuko gara, dudik gabe!",
+    "dia" : "2012-10-16T17 :57 :28.556094Z",
+    "excursionId" : 2,
+    "id" : 10,
+    "valoracion" : 5
+  }, {
+    "autor" : "Marta Huarte",
+    "comentario" : "Hemos disfrutado mucho, aunque al final se hizo un poco largo. Volveremos!",
+    "dia" : "2014-09-05T17 :57 :28.556094Z",
+    "excursionId" : 2,
+    "id" : 11,
+    "valoracion" : 4
+  }, {
+    "autor" : "Dani Tiendica",
+    "comentario" : "Mile esker, Gaztaroa!",
+    "dia" : "2015-02-13T17 :57 :28.556094Z",
+    "excursionId" : 2,
+    "id" : 12,
+    "valoracion" : 3
+  }, {
+    "autor" : "Manu Colino",
+    "comentario" : "Estuvo genial! Alguien sabe cuándo es la próxima? Eskerrik asko!",
+    "dia" : "2013-12-02T17 :57 :28.556094Z",
+    "excursionId" : 2,
+    "id" : 13,
+    "valoracion" : 4
+  }, {
+    "autor" : "Ziriki",
+    "comentario" : "Muy buena gente, pero esto no es para mi; gracias por vuestro apoyo!",
+    "dia" : "2011-12-02T17 :57 :28.556094Z",
+    "excursionId" : 2,
+    "id" : 14,
+    "valoracion" : 2
+  }, {
+    "autor" : "Dani Tiendica",
+    "comentario" : "Mile esker, Gaztaroa!",
+    "dia" : "2012-10-16T17 :57 :28.556094Z",
+    "excursionId" : 3,
+    "id" : 15,
+    "valoracion" : 5
+  }, {
+    "autor" : "Manu Colino",
+    "comentario" : "Estuvo genial! Alguien sabe cuándo es la próxima? Eskerrik asko!",
+    "dia" : "2014-09-05T17 :57 :28.556094Z",
+    "excursionId" : 3,
+    "id" : 16,
+    "valoracion" : 4
+  }, {
+    "autor" : "Ziriki",
+    "comentario" : "Muy buena gente, pero esto no es para mi; gracias por vuestro apoyo!",
+    "dia" : "2015-02-13T17 :57 :28.556094Z",
+    "excursionId" : 3,
+    "id" : 17,
+    "valoracion" : 3
+  }, {
+    "autor" : "Marta Huarte",
+    "comentario" : "Hemos disfrutado mucho, aunque al final se hizo un poco largo. Volveremos!",
+    "dia" : "2013-12-02T17 :57 :28.556094Z",
+    "excursionId" : 3,
+    "id" : 18,
+    "valoracion" : 4
+  }, {
+    "autor" : "Anónimo",
+    "comentario" : "Nada que objetar ni comentar...",
+    "dia" : "2011-12-02T17 :57 :28.556094Z",
+    "excursionId" : 3,
+    "id" : 19,
+    "valoracion" : 2
+  } ],
+  "excursiones" : [ {
+    "descripcion" : "El fin de semana del 26 y 27 de Enero iremos a Lizara para pasar un fin de semana de montaña. La idea es realizar el sábado unas prácticas invernales para todo aquel que no esté familiarizado con el uso de crampones y piolet, para el domingo poner en práctica lo aprendido subiendo al Bisaurín. Las personas que no quieran venir el sábado, podrán asimismo hacer la salida del domingo al Bisaurin partiendo el Domingo desde Pamplona y reuniéndose con el resto en el Refugio de Lizara sobre las 8:00 de la mañana.",
+    "destacado" : true,
+    "id" : 0,
+    "imagen" : "https://firebasestorage.googleapis.com/v0/b/dsm-proyecto.appspot.com/o/bisaurin.png?alt=media&token=6ade0a48-ce29-48c0-a530-963e2d42ea00",
+    "nombre" : "Bisaurín"
+  }, {
+    "descripcion" : "Partiendo del puerto pesquero de Hondarribia, junto al castillo de San Telmo, subiremos a Jaizkibel (545m.) siguiendo el Talaia Bidea que bordea el litoral, para terminar bajando a Pasai Donibane. Se trata de una ruta de cierta dureza, con algún paso expuesto pero reforzado, con un desnivel cercano a los 1000 metros en unos 23 km. de caminata.",
+    "destacado" : false,
+    "id" : 1,
+    "imagen" : "https://firebasestorage.googleapis.com/v0/b/dsm-proyecto.appspot.com/o/jaizkibel.png?alt=media&token=216b45ad-6946-44c3-a5e5-060f4c379a58",
+    "nombre" : "Jaizkibel"
+  }, {
+    "descripcion" : "Este domingo saldremos a Punta Escarra. Saldremos del Puente de los Peregrinos (Canfranc Pueblo) para subir hasta el refugio libre de Ip. Desde ahí cogeremos un pequeño valle hacia el collado que sube de Izas. El collado queda en la base de la pirámide final de Punta Escarra. A continuación hay una trepada fácil pero expuesta que lleva a la cima. Se puede volver por un camino paralelo al de ida, al otro lado del rio.",
+    "destacado" : false,
+    "id" : 2,
+    "imagen" : "https://firebasestorage.googleapis.com/v0/b/dsm-proyecto.appspot.com/o/puntaEscarra.png?alt=media&token=f78b2df6-d5ca-479c-beb5-b56dffab26d4",
+    "nombre" : "Punta Escarra"
+  }, {
+    "descripcion" : "Este fin de semana subiremos los picos de pala de IP (2779m) y Collarada (2886m). El sábado saldremos a las 8:00 de la mañana desde el antiguo club e iremos hasta Canfranc, de donde saldremos. El sábado subiremos a pala de IP y bajaremos al refugio libre del embalse de IP, superando unos 1600 m de desnivel. El domingo subiremos a Collarada y vuelta a Iruña.",
+    "destacado" : false,
+    "id" : 3,
+    "imagen" : "https://firebasestorage.googleapis.com/v0/b/dsm-proyecto.appspot.com/o/palaDeIp.png?alt=media&token=36256678-82c9-4297-884f-9a34a287baad",
+    "nombre" : "Pala de Ip"
+  } ]
+}
